@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { CardContainer, Avatar, Thumbnail } from './styles';
 
-const Card = ({ author = '', avatar, title = '', preview = '', thumbnail }) => {
+const Card = ({ author, avatar, title, preview, thumbnail }) => {
   const onClick = () => {};
 
   return (
@@ -23,6 +23,14 @@ Card.propTypes = {
   title: PropTypes.string,
   preview: PropTypes.string,
   thumbnail: PropTypes.string,
+};
+
+Card.defaultProps = {
+  author: '',
+  avatar: '',
+  title: '',
+  preview: '',
+  thumbnail: '',
 };
 
 export default Card;

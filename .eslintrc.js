@@ -34,6 +34,5 @@ module.exports = {
     'react/function-component-definition': 0,
     'implicit-arrow-linebreak': 0,
     'object-curly-newline': 0,
-    'react/require-default-props': 0,
   },
 };
