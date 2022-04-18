@@ -20,6 +20,8 @@ module.exports = {
         map: [
           ['@', './src'],
           ['@img', './assets/img'],
+          ['@api', './src/api'],
+          ['@common', './src/common'],
           ['@components', './src/components'],
           ['@store', './src/store'],
         ],
@@ -30,5 +32,8 @@ module.exports = {
   rules: {
     'import/no-unresolved': 0,
     'react/function-component-definition': 0,
+    'implicit-arrow-linebreak': 0,
+    'object-curly-newline': 0,
+    'react/require-default-props': 0,
   },
 };

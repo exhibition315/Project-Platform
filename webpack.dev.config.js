@@ -2,6 +2,8 @@ const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const base = require('./webpack.base.config');
 
+const getProjects = require('./mock/getProjects.json');
+
 const DEV_SERVER = 'http://127.0.0.1';
 
 module.exports = merge(base, {
@@ -21,6 +23,10 @@ module.exports = merge(base, {
         target: DEV_SERVER,
         secure: false,
         changeOrigin: true,
+        bypass: function (req, res, proxyOptions) {
+          if (req.url === '/api/get-projects')
+          return res.send(getProjects);
+        },
       },
     },
   },
