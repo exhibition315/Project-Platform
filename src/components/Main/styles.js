@@ -14,6 +14,9 @@ const MainSection = styled.div`
   align-self: center;
   width: 954px;
   padding: 50px 0;
+  ${({ theme }) => theme.tablet`
+    width: 500px;
+  `}
 `;
 
 const ContentContainer = styled.div`
