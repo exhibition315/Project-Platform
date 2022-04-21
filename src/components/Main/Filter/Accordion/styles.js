@@ -6,6 +6,9 @@ import { backgroundImgSetting } from '@components/style/helper';
 const AccordionContainer = styled.div`
   position: relative;
   cursor: pointer;
+  ${({ theme }) => theme.mobile`
+    display: none;
+  `}
 `;
 
 const AccordionContent = styled.div`

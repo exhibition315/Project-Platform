@@ -18,6 +18,9 @@ const EditButton = styled(BaseButton)`
     ${backgroundImgSetting('21px', '20px', 'center', 'contain')}
     margin-right: 12px;
   }
+  ${({ theme }) => theme.mobile`
+    display: none;
+  `}
 `;
 
 const Avatar = styled.div`

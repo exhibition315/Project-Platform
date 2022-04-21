@@ -6,6 +6,10 @@ import searchIcon from '@img/search-icon.svg';
 
 const SearchContainer = styled.div`
   display: flex;
+  ${({ theme }) => theme.mobile`
+    position: absolute;
+    right: 16px;
+  `}
 `;
 
 const SearchInput = styled.input`
@@ -16,6 +20,12 @@ const SearchInput = styled.input`
   ::placeholder {
     color: ${GRAY3};
   }
+  ${({ theme }) => theme.tablet`
+    width: 242px;
+  `}
+   ${({ theme }) => theme.mobile`
+    width: 220px;
+  `}
 `;
 
 const SearchButton = styled(BaseButton)`
