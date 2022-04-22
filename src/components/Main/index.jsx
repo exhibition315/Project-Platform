@@ -1,25 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import useSWR from 'swr';
+import { api, fetcher } from '@api';
 import Header from '@components/Main/Header';
 import Filter from '@components/Main/Filter';
 import Card from '@components/Main/Card';
 import Pagination from '@components/Main/Pagination';
-import apis from '@api';
+import Loading from '@components/Loading';
 import { MainContainer, MainSection, ContentContainer, Footer } from './styles';
 
 const Main = () => {
-  const [projects, setProjectrs] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await apis.getProjects();
-        setProjectrs(result.content);
-      } catch (e) {
-        console.log('API error in getProjects:', e);
-      }
-    };
+  const { data } = useSWR(api.getProjects, fetcher.get);
 
-    fetchData();
-  }, []);
+  if (!data) return <Loading />;
 
   return (
     <MainContainer>
@@ -27,7 +19,7 @@ const Main = () => {
       <MainSection>
         <Filter />
         <ContentContainer>
-          {projects.map((project) => {
+          {data && data.map((project) => {
             const { projectKey, author, avatar, title, preview, thumbnail } = project;
             return (
               <Card
@@ -43,7 +35,8 @@ const Main = () => {
         </ContentContainer>
         <Pagination />
       </MainSection>
-      <Footer>Idea Share © Code: Samick & Michael   /  Design: KT</Footer>
+      <Footer>Idea Share © Code: Samick & Michael / Design: KT</Footer>
+      <Loading />
     </MainContainer>
   );
 };

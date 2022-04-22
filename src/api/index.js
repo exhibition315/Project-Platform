@@ -1,7 +1,11 @@
 import requests from '@api/base';
 
-const apis = {
-  getProjects: (payload) => requests.get('/get-projects', payload),
+const fetcher = {
+  get: (url, payload) => requests.get(url, payload).then((data) => data.content),
 };
 
-export default apis;
+const api = {
+  getProjects: '/get-projects',
+};
+
+export { api, fetcher };
