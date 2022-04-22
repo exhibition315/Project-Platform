@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { GRAY1 } from '@components/style/colors';
+import { GRAY1, GRAY3, GRAY4 } from '@components/style/colors';
 
 const MainContainer = styled.div`
   position: relative;
@@ -33,9 +33,26 @@ const ContentContainer = styled.div`
   ${({ theme }) => theme.tablet`
     margin-top: 28px;
   `}
-    ${({ theme }) => theme.mobile`
+  ${({ theme }) => theme.mobile`
     margin-top: 22px;
   `}
 `;
 
-export { MainContainer, MainSection, ContentContainer };
+const Footer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 40px;
+  height: 60px;
+  background-color: ${GRAY4};
+  font-size: 12px;
+  color: ${GRAY3};
+  ${({ theme }) => theme.tablet`
+    display: none;
+  `}
+  ${({ theme }) => theme.mobile`
+    display: none;
+  `}
+`;
+
+export { MainContainer, MainSection, ContentContainer, Footer };

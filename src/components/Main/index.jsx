@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Header from '@components/Main/Header';
 import Filter from '@components/Main/Filter';
 import Card from '@components/Main/Card';
+import Pagination from '@components/Main/Pagination';
 import apis from '@api';
-import { MainContainer, MainSection, ContentContainer } from './styles';
+import { MainContainer, MainSection, ContentContainer, Footer } from './styles';
 
 const Main = () => {
   const [projects, setProjectrs] = useState([]);
@@ -40,7 +41,9 @@ const Main = () => {
             );
           })}
         </ContentContainer>
+        <Pagination />
       </MainSection>
+      <Footer>Idea Share © Code: Samick & Michael   /  Design: KT</Footer>
     </MainContainer>
   );
 };
