@@ -1,9 +1,13 @@
 import React, { useState, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import * as R from 'ramda';
+import { UPDATE_PROJECT_FILTER } from '@store/main/actions';
 import { FILTER_TYPES } from '@common/constants';
 import { AccordionContainer, AccordionContent, OptionContainer } from './styles';
 
 const Accordion = () => {
-  const [currentType, setCurrentType] = useState(FILTER_TYPES.LATEST);
+  const dispatch = useDispatch();
+  const { filter: currentType } = useSelector((state) => state.main);
   const [visible, setVisible] = useState(false);
 
   const onContentClick = () => {
@@ -11,21 +15,23 @@ const Accordion = () => {
   };
 
   const onOptionClick = useCallback(
-    (filter) => {
-      setCurrentType(filter);
+    (key) => {
+      dispatch(UPDATE_PROJECT_FILTER.ACTION(key));
       setVisible(false);
     },
     [currentType],
   );
 
+  const getContent = () => R.prop('value', R.find(R.propEq('key', currentType))(R.values(FILTER_TYPES)));
+
   return (
     <AccordionContainer>
-      <AccordionContent onClick={onContentClick}>{currentType.value}</AccordionContent>
+      <AccordionContent onClick={onContentClick}>{getContent()}</AccordionContent>
       <OptionContainer visible={visible}>
         {Object.keys(FILTER_TYPES).map((key) => {
           const filter = FILTER_TYPES[key];
           return (
-            <p key={filter.key} onClick={() => onOptionClick(filter)} role="presentation">
+            <p key={filter.key} onClick={() => onOptionClick(filter.key)} role="presentation">
               {filter.value}
             </p>
           );

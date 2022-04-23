@@ -35,5 +35,6 @@ module.exports = {
     'react/function-component-definition': 0,
     'implicit-arrow-linebreak': 0,
     'object-curly-newline': 0,
+    'default-param-last': 0,
   },
 };

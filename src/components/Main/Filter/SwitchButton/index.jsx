@@ -1,13 +1,19 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { UPDATE_PROJECT_TYPE } from '@store/main/actions';
 import { PROJECT_TYPES } from '@common/constants';
 import { SwitchContainer, SwitchButton as Button } from './styles';
 
 const SwitchButton = () => {
-  const [currentType, setCurrentType] = useState('01');
+  const dispatch = useDispatch();
+  const { project: currentType } = useSelector((state) => state.main);
 
-  const onClick = useCallback((key) => {
-    setCurrentType(key);
-  }, [currentType]);
+  const onClick = useCallback(
+    (key) => {
+      dispatch(UPDATE_PROJECT_TYPE.ACTION(key));
+    },
+    [currentType],
+  );
 
   return (
     <SwitchContainer>

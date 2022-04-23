@@ -11,8 +11,6 @@ import { MainContainer, MainSection, ContentContainer, Footer } from './styles';
 const Main = () => {
   const { data } = useSWR(api.getProjects, fetcher.get);
 
-  if (!data) return <Loading />;
-
   return (
     <MainContainer>
       <Header />
@@ -36,7 +34,7 @@ const Main = () => {
         <Pagination />
       </MainSection>
       <Footer>Idea Share © Code: Samick & Michael / Design: KT</Footer>
-      <Loading />
+      <Loading visible={!data} />
     </MainContainer>
   );
 };
