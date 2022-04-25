@@ -24,8 +24,9 @@ module.exports = merge(base, {
         secure: false,
         changeOrigin: true,
         bypass: function (req, res, proxyOptions) {
-          if (req.url === '/api/get-projects')
-          return res.send(getProjects);
+          if (req.url.includes('/api/get-projects')) {
+            return res.send(getProjects);
+          }
         },
       },
     },

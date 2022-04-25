@@ -1,5 +1,7 @@
 export const API_CANCEL_CODE = 'API_CANCEL_CODE';
 
+export const CONTENT_PER_PAGE = 9;
+
 export const PROJECT_TYPES = {
   DESIGN: {
     key: '01',

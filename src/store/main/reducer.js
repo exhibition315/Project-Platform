@@ -4,6 +4,7 @@ import * as ACTIONS from './actions';
 export const initialState = {
   project: PROJECT_TYPES.DESIGN.key,
   filter: FILTER_TYPES.LATEST.key,
+  currentPage: 1,
 };
 
 const reducer = (state = initialState, action) => {
@@ -18,6 +19,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         filter: action.payload,
+      };
+    }
+    case ACTIONS.UPDATE_CURRENT_PAGE.TYPE: {
+      return {
+        ...state,
+        currentPage: action.payload,
       };
     }
     default:

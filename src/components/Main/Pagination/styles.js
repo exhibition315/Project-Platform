@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import prevIcon from '@img/page-prev-arrow.svg';
 import nextIcon from '@img/page-next-arrow.svg';
 import { backgroundImgSetting } from '@components/style/helper';
-import { GRAY4 } from '@components/style/colors';
+import { GRAY4, GRAY6 } from '@components/style/colors';
 
 const PaginationContainer = styled.div`
   display: flex;
@@ -22,16 +22,18 @@ const PaginationContainer = styled.div`
   `}
 `;
 
-const PreviousButton = styled.button`
+const PaginationButton = styled.button`
   cursor: pointer;
-  background-image: url(${prevIcon});
   ${backgroundImgSetting('20px', '20px', 'center', 'contain')}
+  background-color: ${(props) => (props.active ? 'transparent' : GRAY6)};
 `;
 
-const NextButton = styled.button`
-  cursor: pointer;
+const PreviousButton = styled(PaginationButton)`
+  background-image: url(${prevIcon});
+`;
+
+const NextButton = styled(PaginationButton)`
   background-image: url(${nextIcon});
-  ${backgroundImgSetting('20px', '20px', 'center', 'contain')}
 `;
 
 export { PaginationContainer, PreviousButton, NextButton };
