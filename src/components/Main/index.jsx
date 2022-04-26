@@ -1,13 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Header from '@components/Main/Header';
+import Header from '@components/Header';
 import Filter from '@components/Main/Filter';
 import Card from '@components/Main/Card';
 import Pagination from '@components/Main/Pagination';
 import Loading from '@components/Loading';
 import { CONTENT_PER_PAGE } from '@common/constants';
 import useGetProjects from '@hooks/useGetProjects';
-import { MainContainer, MainSection, ContentContainer, Footer } from './styles';
+import { MainContainer } from '@components/style';
+import { MainSection, ContentContainer, Footer } from './styles';
 
 const Main = () => {
   const { project: projectType, filter: filterType, currentPage } = useSelector((state) => state.main);
@@ -21,10 +22,11 @@ const Main = () => {
           <Filter />
           <ContentContainer>
             {content.map((project) => {
-              const { projectKey, author, avatar, title, preview, thumbnail } = project;
+              const { id, author, avatar, title, preview, thumbnail } = project;
               return (
                 <Card
-                  key={`${projectKey}_${projectType}_${filterType}_${currentPage}`}
+                  key={`${id}_${projectType}_${filterType}_${currentPage}`}
+                  id={id}
                   author={author}
                   avatar={avatar}
                   title={title}

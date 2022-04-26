@@ -1,5 +1,14 @@
 import styled from 'styled-components';
-import { WHITE, GRAY4 } from '@components/style/colors';
+import { WHITE, GRAY1, GRAY4 } from '@components/style/colors';
+
+const MainContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100%;
+  background-color: ${GRAY1};
+`;
 
 const BaseButton = styled.div`
   display: flex;
@@ -12,5 +21,4 @@ const BaseButton = styled.div`
   cursor: pointer;
 `;
 
-// eslint-disable-next-line import/prefer-default-export
-export { BaseButton };
+export { MainContainer, BaseButton };

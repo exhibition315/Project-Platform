@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import { CardContainer, Avatar, Thumbnail } from './styles';
 
-const Card = ({ author, avatar, title, preview, thumbnail }) => {
-  const onClick = () => {};
+const Card = ({ id, author, avatar, title, preview, thumbnail }) => {
+  const history = useHistory();
+  const onClick = () => {
+    history.push(`/${id}`);
+  };
 
   return (
     <CardContainer onClick={onClick}>
@@ -18,6 +22,7 @@ const Card = ({ author, avatar, title, preview, thumbnail }) => {
 };
 
 Card.propTypes = {
+  id: PropTypes.string.isRequired,
   author: PropTypes.string,
   avatar: PropTypes.string,
   title: PropTypes.string,
