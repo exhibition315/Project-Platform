@@ -32,7 +32,9 @@ module.exports = {
       '@api': resolve('./src/api'),
       '@common': resolve('./src/common'),
       '@components': resolve('./src/components'),
+      '@hooks': resolve('./src/services/hooks'),
       '@store': resolve('./src/store'),
+      '@utils': resolve('./src/services/utils'),
     },
   },
   module: {

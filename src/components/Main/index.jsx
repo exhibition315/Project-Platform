@@ -1,32 +1,30 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import useSWR from 'swr';
-import { api, fetcher } from '@api';
 import Header from '@components/Main/Header';
 import Filter from '@components/Main/Filter';
 import Card from '@components/Main/Card';
 import Pagination from '@components/Main/Pagination';
 import Loading from '@components/Loading';
 import { CONTENT_PER_PAGE } from '@common/constants';
+import useGetProjects from '@hooks/useGetProjects';
 import { MainContainer, MainSection, ContentContainer, Footer } from './styles';
 
 const Main = () => {
   const { project: projectType, filter: filterType, currentPage } = useSelector((state) => state.main);
-  const { data } = useSWR([api.getProjects, currentPage, projectType, filterType], (url) =>
-    fetcher.get(url, { currentPage, projectType, filterType }));
+  const { content } = useGetProjects();
 
   return (
     <MainContainer>
       <Header />
-      {data && (
+      {content && content.length > 0 && (
         <MainSection>
           <Filter />
           <ContentContainer>
-            {data.contents.map((project) => {
+            {content.map((project) => {
               const { projectKey, author, avatar, title, preview, thumbnail } = project;
               return (
                 <Card
-                  key={projectKey}
+                  key={`${projectKey}_${projectType}_${filterType}_${currentPage}`}
                   author={author}
                   avatar={avatar}
                   title={title}
@@ -36,11 +34,11 @@ const Main = () => {
               );
             })}
           </ContentContainer>
-          <Pagination totalContent={data.totalCnt} contentPerPage={CONTENT_PER_PAGE} />
+          <Pagination totalContent={20} contentPerPage={CONTENT_PER_PAGE} />
         </MainSection>
       )}
       <Footer>Idea Share © Code: Samick & Michael / Design: KT</Footer>
-      <Loading visible={!data} />
+      <Loading visible={content.length === 0} />
     </MainContainer>
   );
 };

@@ -1,10 +1,5 @@
 import { css } from 'styled-components';
-
-const breakPoints = {
-  desktop: 1280,
-  tablet: 768,
-  mobile: 360,
-};
+import { BREAK_POINTS } from '@common/constants';
 
 const backgroundImgSetting = (width, height, position, size = 'cover') => css`
   width: ${width};
@@ -14,9 +9,9 @@ const backgroundImgSetting = (width, height, position, size = 'cover') => css`
   background-repeat: no-repeat;
 `;
 
-const media = Object.keys(breakPoints).reduce((acc, label) => {
+const media = Object.keys(BREAK_POINTS).reduce((acc, label) => {
   acc[label] = (...args) => css`
-    @media (max-width: ${breakPoints[label]}px) {
+    @media (max-width: ${BREAK_POINTS[label]}px) {
       ${css(...args)};
     }
   `;

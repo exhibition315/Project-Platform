@@ -29,6 +29,7 @@ const Avatar = styled.div`
   background-image: url(${avatarIcon});
   ${backgroundImgSetting('46px', '46px', 'center', 'contain')}
   border-radius: 50%;
+  cursor: pointer;
 `;
 
 export { EditContainer, EditButton, Avatar };
