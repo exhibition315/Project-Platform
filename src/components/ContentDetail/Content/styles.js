@@ -13,6 +13,7 @@ const ContentContainer = styled.div`
   a {
     text-decoration: none;
     color: ${BLUE1};
+    word-wrap: break-word;
   }
   > p {
     margin-bottom: 16px;
@@ -25,7 +26,15 @@ const AuthorizeContainer = styled.div`
   margin-bottom: 20px;
   > p {
     margin-left: 8px;
+    ${({ theme }) => theme.mobile`
+      margin: 5px 0 0 0;
+      font-size: 14px;
+    `};
   }
+  ${({ theme }) => theme.mobile`
+    flex-direction: column;
+    align-items: flex-start;
+  `};
 `;
 
 const AuthorizeIcon = styled.div`

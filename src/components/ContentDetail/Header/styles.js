@@ -37,6 +37,9 @@ const AuthorButton = styled.button`
   &:last-of-type {
     color: ${GRAY6};
     margin-left: 46px;
+    ${({ theme }) => theme.tablet`
+      margin-left: 32px;
+    `};
   }
 `;
 
