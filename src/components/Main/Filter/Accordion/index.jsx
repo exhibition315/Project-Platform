@@ -1,8 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import * as R from 'ramda';
 import { UPDATE_PROJECT_FILTER } from '@store/main/actions';
 import { FILTER_TYPES } from '@common/constants';
+import { getValueByKey } from '@utils/utils';
 import { AccordionContainer, AccordionContent, OptionContainer } from './styles';
 
 const Accordion = () => {
@@ -22,11 +22,9 @@ const Accordion = () => {
     [currentType],
   );
 
-  const getContent = () => R.prop('value', R.find(R.propEq('key', currentType))(R.values(FILTER_TYPES)));
-
   return (
     <AccordionContainer>
-      <AccordionContent onClick={onContentClick}>{getContent()}</AccordionContent>
+      <AccordionContent onClick={onContentClick}>{getValueByKey(currentType, FILTER_TYPES)}</AccordionContent>
       <OptionContainer visible={visible}>
         {Object.keys(FILTER_TYPES).map((key) => {
           const filter = FILTER_TYPES[key];

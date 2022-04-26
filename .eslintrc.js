@@ -40,5 +40,6 @@ module.exports = {
     'default-param-last': 0,
     'max-len': ['error', { code: 120 }],
     'react/no-array-index-key': 0,
+    'react/forbid-prop-types': 0,
   },
 };

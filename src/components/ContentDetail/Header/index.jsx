@@ -1,14 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Avatar } from '@components/Header/Editor/styles';
 import { HeaderContainer, AuthorContainer, AuthorButton } from './styles';
 
-const Header = () => (
+const Header = ({ author, date }) => (
   <HeaderContainer>
     <div>
       <Avatar />
       <AuthorContainer>
-        <p>Doris Wang</p>
-        <p>2021/09/30</p>
+        <p>{author}</p>
+        <p>{date}</p>
       </AuthorContainer>
     </div>
     <div>
@@ -17,5 +18,15 @@ const Header = () => (
     </div>
   </HeaderContainer>
 );
+
+Header.propTypes = {
+  author: PropTypes.string,
+  date: PropTypes.string,
+};
+
+Header.defaultProps = {
+  author: '',
+  date: '',
+};
 
 export default Header;

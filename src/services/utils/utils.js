@@ -1,3 +1,4 @@
+import * as R from 'ramda';
 import { BREAK_POINTS } from '@common/constants';
 
 export const getWindowDimensions = () => {
@@ -22,3 +23,5 @@ export const isMobile = () => {
   const { width } = getWindowDimensions();
   return width <= BREAK_POINTS.mobile;
 };
+
+export const getValueByKey = (key, types) => R.prop('value', R.find(R.propEq('key', key))(R.values(types)));

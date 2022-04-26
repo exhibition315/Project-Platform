@@ -29,3 +29,30 @@ export const FILTER_TYPES = {
     value: '人氣瀏覽',
   },
 };
+
+export const TAG_TYPES = {
+  WEB: {
+    key: '01',
+    value: '網頁',
+  },
+  IOS: {
+    key: '02',
+    value: 'IOS',
+  },
+  ANDROID: {
+    key: '03',
+    value: 'Android',
+  },
+  SOFTWARE: {
+    key: '04',
+    value: '軟體',
+  },
+  COMPONENT: {
+    key: '05',
+    value: '元件',
+  },
+  OTHER: {
+    key: '06',
+    value: '其他介面',
+  },
+};

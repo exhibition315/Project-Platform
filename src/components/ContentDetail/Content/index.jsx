@@ -1,4 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { TAG_TYPES } from '@common/constants';
+import { getValueByKey } from '@utils/utils';
 import {
   ContentContainer,
   AuthorizeContainer,
@@ -9,9 +12,7 @@ import {
   WatchIcon,
 } from './styles';
 
-const tags = ['網頁', 'Android'];
-
-const Content = () => (
+const Content = ({ title, description, link, tags, watch }) => (
   <ContentContainer>
     <AuthorizeContainer>
       <AuthorizeIcon />
@@ -23,22 +24,37 @@ const Content = () => (
         授權.
       </p>
     </AuthorizeContainer>
-    <ContentTitle>我的輕旅行</ContentTitle>
-    <p>開啟定位，搜尋附近藝文活動與台灣景點，簡單快速的規劃功能，輕鬆安排旅程；上傳照片，記錄美好的回憶。</p>
-    <a
-      href="https://www.figma.com/file/cuQhxmhzBXMOGysKvrTHmO/Hermes?node-id=567%3A3885"
-      target="_blank"
-      rel="noreferrer"
-    >
-      https://www.figma.com/file/cuQhxmhzBXMOGysKvrTHmO/Hermes?node-id=567%3A3885
+    <ContentTitle>{title}</ContentTitle>
+    <p>{description}</p>
+    <a href={link} target="_blank" rel="noreferrer">
+      {link}
     </a>
     <TagContainer>
-      {tags.map((tag, index) => <p key={`tag_${index}`}>{tag}</p>)}
+      {tags.map((tag, index) => {
+        const value = getValueByKey(tag, TAG_TYPES);
+        return <p key={`tag_${index}`}>{value}</p>;
+      })}
     </TagContainer>
     <Footer>
-      <WatchIcon watchCount={20} />
+      <WatchIcon watchCount={watch} />
     </Footer>
   </ContentContainer>
 );
+
+Content.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  link: PropTypes.string,
+  tags: PropTypes.array,
+  watch: PropTypes.number,
+};
+
+Content.defaultProps = {
+  title: '',
+  description: '',
+  link: '',
+  tags: [],
+  watch: 0,
+};
 
 export default Content;
