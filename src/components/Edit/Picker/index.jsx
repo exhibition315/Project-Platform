@@ -55,7 +55,7 @@ Picker.propTypes = {
   linkContent: PropTypes.string,
   link: PropTypes.string,
   isRequired: PropTypes.bool,
-  options: PropTypes.array,
+  options: PropTypes.object,
   margin: PropTypes.string,
 };
 
@@ -66,7 +66,7 @@ Picker.defaultProps = {
   linkContent: '',
   link: '',
   isRequired: true,
-  options: [],
+  options: {},
   margin: '',
 };
 

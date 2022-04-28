@@ -3,6 +3,7 @@ import Header from '@components/Header';
 import Picker from '@components/Edit/Picker';
 import TextInput from '@components/Edit/TextInput';
 import MultiTextInput from '@components/Edit/MultiTextInput';
+import TagSelector from '@components/Edit/TagSelector';
 import { PROJECT_TYPES, CC_TYPES } from '@common/constants';
 import { MainContainer } from '@components/style';
 import { MainSection, TopContainer, CoverContainer, CoverContent, Cover, FooterContainer } from './styles';
@@ -31,6 +32,7 @@ const Edit = () => (
         margin="0 0 36px 0"
       />
       <TextInput title="專案名稱" margin="0 0 36px 0" />
+      <TagSelector margin="0 0 36px 0" />
       <MultiTextInput
         title="視覺稿"
         description="附上視覺稿連結，方便工程師了解詳細視覺"
