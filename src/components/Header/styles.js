@@ -26,6 +26,7 @@ const HeaderContainer = styled.div`
 const HeaderTitleImg = styled.div`
   background-image: url(${headerImg});
   ${backgroundImgSetting('174px', '63px', 'center', 'contain')};
+  cursor: pointer;
   ${({ theme }) => theme.mobile`
     position: absolute;
     width: 120px;

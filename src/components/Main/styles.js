@@ -1,14 +1,5 @@
 import styled from 'styled-components';
-import { GRAY1, GRAY3, GRAY4 } from '@components/style/colors';
-
-const MainContainer = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  height: 100%;
-  background-color: ${GRAY1};
-`;
+import { GRAY3, GRAY4 } from '@components/style/colors';
 
 const MainSection = styled.div`
   align-self: center;
@@ -55,4 +46,4 @@ const Footer = styled.div`
   `}
 `;
 
-export { MainContainer, MainSection, ContentContainer, Footer };
+export { MainSection, ContentContainer, Footer };

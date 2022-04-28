@@ -56,3 +56,30 @@ export const TAG_TYPES = {
     value: '其他介面',
   },
 };
+
+export const CC_TYPES = {
+  BY: {
+    key: '01',
+    value: '姓名標示',
+  },
+  BY_NC: {
+    key: '02',
+    value: '姓名標示─非商業性',
+  },
+  BY_NC_SA: {
+    key: '03',
+    value: '姓名標示─非商業性─相同方式分享',
+  },
+  BY_ND: {
+    key: '04',
+    value: '姓名標示─禁止改作',
+  },
+  BY_NC_ND: {
+    key: '05',
+    value: '姓名標示─非商業性─禁止改作',
+  },
+  BY_SA: {
+    key: '06',
+    value: '姓名標示─相同方式分享',
+  },
+};

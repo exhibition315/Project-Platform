@@ -1,15 +1,18 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { EditContainer, EditButton, Avatar } from './styles';
 
 const Editor = () => {
-  const onEditClick = () => {};
+  const history = useHistory();
 
-  const onAvatarClick = () => {};
+  const onEditClick = () => {
+    history.push('/edit');
+  };
 
   return (
     <EditContainer>
       <EditButton onClick={onEditClick}>投稿 / 提案</EditButton>
-      <Avatar onClick={onAvatarClick} />
+      <Avatar />
     </EditContainer>
   );
 };

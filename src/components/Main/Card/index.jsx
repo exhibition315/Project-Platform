@@ -6,7 +6,7 @@ import { CardContainer, Avatar, Thumbnail } from './styles';
 const Card = ({ id, author, avatar, title, preview, thumbnail }) => {
   const history = useHistory();
   const onClick = () => {
-    history.push(`/${id}`);
+    history.push(`/view/${id}`);
   };
 
   return (
