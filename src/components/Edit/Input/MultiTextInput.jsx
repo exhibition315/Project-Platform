@@ -6,7 +6,7 @@ import { MultiTextInputContainer } from './styles';
 const MultiTextInput = forwardRef(
   ({ field, title, description, placeholder, linkContent, link, isRequired, margin, height }, ref) => {
     const renderInput = () => (
-      <MultiTextInputContainer ref={ref} placeholder={placeholder} height={height} {...field} />
+      <MultiTextInputContainer ref={ref} placeholder={placeholder} height={height} autoComplete="off" {...field} />
     );
 
     return (

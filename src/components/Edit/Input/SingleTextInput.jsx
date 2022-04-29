@@ -5,7 +5,9 @@ import { SingleTextInputContainer } from './styles';
 
 const SingleTextInput = forwardRef(
   ({ field, title, description, placeholder, linkContent, link, isRequired, margin }, ref) => {
-    const renderInput = () => <SingleTextInputContainer ref={ref} placeholder={placeholder} {...field} />;
+    const renderInput = () => (
+      <SingleTextInputContainer ref={ref} placeholder={placeholder} autoComplete="off" {...field} />
+    );
     return (
       <BaseInput
         renderInput={renderInput}

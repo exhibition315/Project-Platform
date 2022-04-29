@@ -1,5 +1,7 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import Header from '@components/Header';
 import PickerInput from '@components/Edit/Input/PickerInput';
 import SingleTextInput from '@components/Edit/Input/SingleTextInput';
@@ -7,10 +9,12 @@ import MultiTextInput from '@components/Edit/Input/MultiTextInput';
 import TagSelector from '@components/Edit/TagSelector';
 import { PROJECT_TYPES, CC_TYPES, TAG_TYPES } from '@common/constants';
 import { MainContainer } from '@components/style';
+import { editSchema } from '@utils/validation';
 import { MainSection, TopContainer, CoverContainer, CoverContent, Cover, FooterContainer } from './styles';
 
 const Edit = () => {
-  const { register, control, handleSubmit } = useForm({
+  const history = useHistory();
+  const { control, register, handleSubmit, reset } = useForm({
     defaultValues: {
       projectType: '',
       cc: '',
@@ -19,10 +23,16 @@ const Edit = () => {
       vision: '',
       description: '',
     },
+    resolver: yupResolver(editSchema),
   });
 
   const onSubmit = (data) => {
     console.log(data);
+    history.push('/');
+  };
+
+  const onReset = () => {
+    reset();
   };
 
   const getOptions = (types) =>
@@ -43,6 +53,7 @@ const Edit = () => {
             <Controller
               name="projectType"
               control={control}
+              rules={{ required: true }}
               render={({ field }) => (
                 <PickerInput
                   placeholder="請選擇"
@@ -64,6 +75,7 @@ const Edit = () => {
           <Controller
             name="cc"
             control={control}
+            rules={{ required: true }}
             render={({ field }) => (
               <PickerInput
                 title="創用CC"
@@ -79,14 +91,10 @@ const Edit = () => {
           <Controller
             name="projectName"
             control={control}
+            rules={{ required: true }}
             render={({ field }) => <SingleTextInput title="專案名稱" margin="0 0 36px 0" field={field} />}
           />
-          <TagSelector
-            register={register}
-            title="專案分類"
-            options={getOptions(TAG_TYPES)}
-            margin="0 0 36px 0"
-          />
+          <TagSelector register={register} title="專案分類" options={getOptions(TAG_TYPES)} margin="0 0 36px 0" />
           <Controller
             name="vision"
             control={control}
@@ -115,7 +123,9 @@ const Edit = () => {
             )}
           />
           <FooterContainer>
-            <button type="button">取消</button>
+            <button type="button" onClick={onReset}>
+              取消
+            </button>
             <button type="submit">發布</button>
           </FooterContainer>
         </form>

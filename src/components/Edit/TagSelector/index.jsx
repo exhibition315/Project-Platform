@@ -12,7 +12,12 @@ const TagSelector = ({ register, title, options, margin }) => (
         const key = `check-input-${value}`;
         return (
           <LabelContainer key={key} htmlFor={key}>
-            <input id={key} type="checkbox" value={value} {...register(`tag[${index}]`)} />
+            <input
+              id={key}
+              type="checkbox"
+              value={value}
+              {...register(`tag[${index}]`)}
+            />
             {label}
           </LabelContainer>
         );
