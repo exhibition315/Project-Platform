@@ -5,16 +5,6 @@ import arrowIcon from '@img/arrow-icon.svg';
 import { backgroundImgSetting } from '@components/style/helper';
 import { GRAY4, GRAY7 } from '@components/style/colors';
 
-const Input = styled.input`
-  width: 100%;
-  height: 52px;
-  font-size: 16px;
-  color: ${GRAY4};
-  padding: 16px 20px;
-  background-color: ${GRAY7};
-  border-radius: 8px;
-`;
-
 const PickerStyles = {
   control: () => ({
     width: '100%',
@@ -46,9 +36,17 @@ const PickerIcon = styled.div`
   ${backgroundImgSetting('12px', '11px', 'center', 'contain')};
 `;
 
-const SingleTextInputContainer = styled(Input).attrs(() => ({
+const SingleTextInputContainer = styled.input.attrs(() => ({
   type: 'text',
-}))``;
+}))`
+  width: 100%;
+  height: 52px;
+  font-size: 16px;
+  color: ${GRAY4};
+  padding: 16px 20px;
+  background-color: ${GRAY7};
+  border-radius: 8px;
+`;
 
 const MultiTextInputContainer = styled.textarea`
   width: 100%;
