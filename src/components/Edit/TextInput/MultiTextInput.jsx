@@ -1,17 +1,10 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import Select, { components } from 'react-select';
 import { InputContainer, Title, Required, Description } from '@components/Edit/styles';
-import { PickerStyle, PickerIcon } from './styles';
+import { MultiTextInputContainer } from './styles';
 
-const DropdownIndicator = (props) => (
-  <components.DropdownIndicator {...props}>
-    <PickerIcon />
-  </components.DropdownIndicator>
-);
-
-const Picker = forwardRef(
-  ({ options, title, description, placeholder, linkContent, link, isRequired, margin, field }, ref) => (
+const MultiTextInput = forwardRef(
+  ({ field, title, description, placeholder, linkContent, link, isRequired, margin, height }, ref) => (
     <InputContainer margin={margin}>
       <div>
         {title && (
@@ -24,22 +17,13 @@ const Picker = forwardRef(
         )}
         {isRequired && <Required>*必填</Required>}
       </div>
-      <Select
-        ref={ref}
-        placeholder={placeholder}
-        components={{ DropdownIndicator }}
-        isSearchable={false}
-        styles={PickerStyle}
-        options={options}
-        {...field}
-      />
+      <MultiTextInputContainer ref={ref} placeholder={placeholder} height={height} {...field} />
       {description && <Description>{description}</Description>}
     </InputContainer>
   ),
 );
 
-Picker.propTypes = {
-  options: PropTypes.array,
+MultiTextInput.propTypes = {
   field: PropTypes.object,
   title: PropTypes.string,
   description: PropTypes.string,
@@ -48,18 +32,19 @@ Picker.propTypes = {
   link: PropTypes.string,
   isRequired: PropTypes.bool,
   margin: PropTypes.string,
+  height: PropTypes.number,
 };
 
-Picker.defaultProps = {
-  title: '',
-  options: [],
+MultiTextInput.defaultProps = {
   field: {},
+  title: '',
   description: '',
   placeholder: '',
   linkContent: '',
   link: '',
   isRequired: true,
   margin: '',
+  height: 104,
 };
 
-export default Picker;
+export default MultiTextInput;

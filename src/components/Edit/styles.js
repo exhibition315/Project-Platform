@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { space } from 'styled-system';
 import editCover from '@img/edit-cover.svg';
 import { backgroundImgSetting } from '@components/style/helper';
-import { WHITE, BLACK4, GRAY1, GRAY3, GRAY4, GRAY6, GRAY7, BLUE1, RED1 } from '@components/style/colors';
+import { WHITE, BLACK4, GRAY1, GRAY3, GRAY4, GRAY6, BLUE1, RED1 } from '@components/style/colors';
 
 const MainSection = styled.div`
   align-self: center;
@@ -49,7 +49,6 @@ const Cover = styled.div`
 const FooterContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-
   > button {
     width: 214px;
     height: 64px;
@@ -58,6 +57,7 @@ const FooterContainer = styled.div`
     background-color: ${GRAY3};
     border-radius: 8px;
     margin-right: 16px;
+    cursor: pointer;
     :last-of-type {
       background-color: ${GRAY4};
       margin-right: 0;
@@ -74,9 +74,6 @@ const InputContainer = styled.div`
     display: flex;
     align-items: flex-end;
     margin-bottom: 10px;
-  }
-  > section {
-    position: relative;
   }
 `;
 
@@ -104,16 +101,6 @@ const Description = styled.p`
   margin-top: 6px;
 `;
 
-const Input = styled.input`
-  width: 100%;
-  height: 52px;
-  font-size: 16px;
-  color: ${GRAY4};
-  padding: 16px 20px;
-  background-color: ${GRAY7};
-  border-radius: 8px;
-`;
-
 export {
   MainSection,
   TopContainer,
@@ -125,5 +112,4 @@ export {
   Title,
   Required,
   Description,
-  Input,
 };

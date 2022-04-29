@@ -11,7 +11,7 @@ const TagSelector = ({ margin }) => (
       {Object.keys(TAG_TYPES).map((key) => {
         const tag = TAG_TYPES[key];
         return (
-          <SelectorContainer>
+          <SelectorContainer key={tag.key}>
             <Square />
             <p>{tag.value}</p>
           </SelectorContainer>
