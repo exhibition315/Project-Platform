@@ -24,7 +24,7 @@ const MultiTextInput = forwardRef(
 );
 
 MultiTextInput.propTypes = {
-  field: PropTypes.object,
+  field: PropTypes.object.isRequired,
   title: PropTypes.string,
   description: PropTypes.string,
   placeholder: PropTypes.string,
@@ -36,7 +36,6 @@ MultiTextInput.propTypes = {
 };
 
 MultiTextInput.defaultProps = {
-  field: {},
   title: '',
   description: '',
   placeholder: '',

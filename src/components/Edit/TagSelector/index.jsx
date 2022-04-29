@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TAG_TYPES } from '@common/constants';
 import { Title } from '@components/Edit/styles';
-import { TagSelectorContainer, TagContentContainer, SelectorContainer, Square } from './styles';
+import { TagSelectorContainer, TagContentContainer, LabelContainer } from './styles';
 
-const TagSelector = ({ margin }) => (
+const TagSelector = ({ register, title, options, margin }) => (
   <TagSelectorContainer margin={margin}>
-    <Title>專案分類</Title>
+    <Title>{title}</Title>
     <TagContentContainer>
-      {Object.keys(TAG_TYPES).map((key) => {
-        const tag = TAG_TYPES[key];
+      {options.map((option, index) => {
+        const { value, label } = option;
+        const key = `check-input-${value}`;
         return (
-          <SelectorContainer key={tag.key}>
-            <Square />
-            <p>{tag.value}</p>
-          </SelectorContainer>
+          <LabelContainer key={key} htmlFor={key}>
+            <input id={key} type="checkbox" value={value} {...register(`tag[${index}]`)} />
+            {label}
+          </LabelContainer>
         );
       })}
     </TagContentContainer>
@@ -22,10 +22,15 @@ const TagSelector = ({ margin }) => (
 );
 
 TagSelector.propTypes = {
+  register: PropTypes.func.isRequired,
+  options: PropTypes.array,
+  title: PropTypes.string,
   margin: PropTypes.string,
 };
 
 TagSelector.defaultProps = {
+  options: [],
+  title: '',
   margin: '',
 };
 

@@ -5,17 +5,17 @@ import PickerInput from '@components/Edit/Input/PickerInput';
 import SingleTextInput from '@components/Edit/Input/SingleTextInput';
 import MultiTextInput from '@components/Edit/Input/MultiTextInput';
 import TagSelector from '@components/Edit/TagSelector';
-import { PROJECT_TYPES, CC_TYPES } from '@common/constants';
+import { PROJECT_TYPES, CC_TYPES, TAG_TYPES } from '@common/constants';
 import { MainContainer } from '@components/style';
 import { MainSection, TopContainer, CoverContainer, CoverContent, Cover, FooterContainer } from './styles';
 
 const Edit = () => {
-  const { control, handleSubmit } = useForm({
+  const { register, control, handleSubmit } = useForm({
     defaultValues: {
       projectType: '',
       cc: '',
       projectName: '',
-      tag: '',
+      tag: [],
       vision: '',
       description: '',
     },
@@ -81,7 +81,12 @@ const Edit = () => {
             control={control}
             render={({ field }) => <SingleTextInput title="專案名稱" margin="0 0 36px 0" field={field} />}
           />
-          <TagSelector margin="0 0 36px 0" />
+          <TagSelector
+            register={register}
+            title="專案分類"
+            options={getOptions(TAG_TYPES)}
+            margin="0 0 36px 0"
+          />
           <Controller
             name="vision"
             control={control}

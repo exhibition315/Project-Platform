@@ -12,30 +12,32 @@ const TagContentContainer = styled.div`
   margin-top: 20px;
 `;
 
-const SelectorContainer = styled.div`
+const LabelContainer = styled.label`
   display: flex;
   align-items: center;
   font-size: 16px;
   color: ${GRAY4};
-`;
-
-const Square = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 28px;
-  height: 28px;
-  background-color: ${GRAY7};
-  border-radius: 4px;
-  margin-right: 8px;
-  ::after {
-    content: '';
-    width: 14px;
-    height: 14px;
-    background-color: ${GRAY4};
-    border-radius: 2px;
-    display: ${(props) => (props.checked ? 'block' : 'none')};
+  cursor: pointer;
+  user-select: none;
+  > input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    margin: 0 8px 0 0;
+    appearance: none;
+    background-color: ${GRAY7};
+    border-radius: 4px;
+    cursor: pointer;
+    :checked::after {
+      content: '';
+      width: 14px;
+      height: 14px;
+      background-color: ${GRAY4};
+      border-radius: 2px;
+    }
   }
 `;
 
-export { TagSelectorContainer, TagContentContainer, SelectorContainer, Square };
+export { TagSelectorContainer, TagContentContainer, LabelContainer };

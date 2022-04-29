@@ -21,7 +21,7 @@ const SingleTextInput = forwardRef(
 );
 
 SingleTextInput.propTypes = {
-  field: PropTypes.object,
+  field: PropTypes.object.isRequired,
   title: PropTypes.string,
   description: PropTypes.string,
   placeholder: PropTypes.string,
@@ -32,7 +32,6 @@ SingleTextInput.propTypes = {
 };
 
 SingleTextInput.defaultProps = {
-  field: {},
   title: '',
   description: '',
   placeholder: '',

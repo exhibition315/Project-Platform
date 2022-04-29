@@ -39,7 +39,7 @@ const PickerInput = forwardRef(
 
 PickerInput.propTypes = {
   options: PropTypes.array,
-  field: PropTypes.object,
+  field: PropTypes.object.isRequired,
   title: PropTypes.string,
   description: PropTypes.string,
   placeholder: PropTypes.string,
@@ -50,9 +50,8 @@ PickerInput.propTypes = {
 };
 
 PickerInput.defaultProps = {
-  title: '',
   options: [],
-  field: {},
+  title: '',
   description: '',
   placeholder: '',
   linkContent: '',
