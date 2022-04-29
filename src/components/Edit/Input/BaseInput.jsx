@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { InputContainer, Title, Required, Description } from './styles';
 
-const BaseInput = ({ renderInput, title, description, linkContent, link, isRequired, margin }) => (
-  <InputContainer margin={margin}>
+const BaseInput = ({ renderInput, title, description, linkContent, link, isRequired, margin, containerStyle }) => (
+  <InputContainer margin={margin} containerStyle={containerStyle}>
     <div>
       {title && (
         <Title>
@@ -28,6 +28,7 @@ BaseInput.propTypes = {
   link: PropTypes.string,
   isRequired: PropTypes.bool,
   margin: PropTypes.string,
+  containerStyle: PropTypes.array,
 };
 
 BaseInput.defaultProps = {
@@ -37,6 +38,7 @@ BaseInput.defaultProps = {
   link: '',
   isRequired: true,
   margin: '',
+  containerStyle: [],
 };
 
 export default BaseInput;

@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import Select, { components } from 'react-select';
 import BaseInput from './BaseInput';
-import { PickerStyles, PickerIcon } from './styles';
+import { PickerStyles, PickerIcon, PickerRwdStyle } from './styles';
 
 const DropdownIndicator = (props) => (
   <components.DropdownIndicator {...props}>
@@ -32,6 +32,7 @@ const PickerInput = forwardRef(
         link={link}
         isRequired={isRequired}
         margin={margin}
+        containerStyle={PickerRwdStyle}
       />
     );
   },

@@ -63,7 +63,6 @@ const Edit = () => {
                 <PickerInput
                   placeholder="請選擇"
                   options={getOptions(PROJECT_TYPES)}
-                  margin="0 30px 60px 0"
                   field={field}
                 />
               )}

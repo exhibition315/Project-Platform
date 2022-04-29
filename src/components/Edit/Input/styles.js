@@ -16,6 +16,7 @@ const InputContainer = styled.div`
     align-items: flex-end;
     margin-bottom: 10px;
   }
+  ${(props) => props.containerStyle};
 `;
 
 const Title = styled.p`
@@ -73,6 +74,13 @@ MultiTextInputContainer.defaultProps = {
   height: 104,
 };
 
+const PickerRwdStyle = css`
+  margin: 0 30px 60px 0;
+  ${({ theme }) => theme.mobile`
+      margin: 0 0 36px 0;
+  `};
+`;
+
 const PickerStyles = {
   control: () => ({
     width: '100%',
@@ -111,7 +119,11 @@ const TagSelectorContainer = styled.div`
 const TagContentContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin-top: 20px;
+  ${({ theme }) => theme.mobile`
+      row-gap: 24px;
+  `};
 `;
 
 const LabelContainer = styled.label`
@@ -121,6 +133,7 @@ const LabelContainer = styled.label`
   color: ${GRAY4};
   cursor: pointer;
   user-select: none;
+  white-space: nowrap;
   > input {
     display: flex;
     justify-content: center;
@@ -140,11 +153,19 @@ const LabelContainer = styled.label`
       border-radius: 2px;
     }
   }
+  ${({ theme }) => theme.mobile`
+      flex: 0 1 33%;
+  `};
 `;
 
 const CoverContainer = styled.div`
   font-size: 14px;
   color: ${RED1};
+  ${({ theme }) => theme.mobile`
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 22px;
+  `};
 `;
 
 const CoverContent = styled.div`
@@ -155,7 +176,12 @@ const CoverContent = styled.div`
   align-items: center;
   width: 192px;
   height: 192px;
+  min-width: 192px;
+  min-height: 192px;
   border-radius: 12px;
+  ${({ theme }) => theme.mobile`
+      margin-right: 8px;
+  `};
   ${(props) => {
     if (props.bgImage) {
       return css`
@@ -201,11 +227,14 @@ const Cover = styled.div`
   ${backgroundImgSetting('64px', '60px', 'center', 'contain')};
 `;
 
+const CoverHint = styled.div``;
+
 export {
   InputContainer,
   Title,
   Required,
   Description,
+  PickerRwdStyle,
   PickerStyles,
   PickerIcon,
   SingleTextInputContainer,
@@ -216,4 +245,5 @@ export {
   CoverContainer,
   CoverContent,
   Cover,
+  CoverHint,
 };

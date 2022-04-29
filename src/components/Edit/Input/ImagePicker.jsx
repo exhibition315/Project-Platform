@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { CoverContainer, CoverContent, Cover } from './styles';
+import { CoverContainer, CoverContent, Cover, CoverHint } from './styles';
 
 const ImagePicker = ({ field }) => {
   const [bgImage, setBgImage] = useState('');
@@ -54,8 +54,10 @@ const ImagePicker = ({ field }) => {
         </label>
         {renderCoverFooter()}
       </CoverContent>
-      <p>視覺或示意圖</p>
-      <p>(建議 寬670 x 高502 JPG、PNG)</p>
+      <CoverHint>
+        <p>視覺或示意圖</p>
+        <p>(建議 寬670 x 高502 JPG、PNG)</p>
+      </CoverHint>
     </CoverContainer>
   );
 };

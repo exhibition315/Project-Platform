@@ -9,11 +9,25 @@ const MainSection = styled.div`
   background-color: ${WHITE};
   box-shadow: 0px 4px 4px ${BLACK4};
   border-radius: 16px;
+  ${({ theme }) => theme.tablet`
+    width: 736px;
+    margin: 36px 0 46px 0;
+    padding: 46px;
+  `}
+  ${({ theme }) => theme.mobile`
+    width: 100%;
+    margin: 24px 0 0 0;
+    padding: 40px 30px;
+  `}
 `;
 
 const TopContainer = styled.div`
   display: flex;
   align-items: flex-end;
+  ${({ theme }) => theme.mobile`
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  `}
 `;
 
 const FooterContainer = styled.div`
