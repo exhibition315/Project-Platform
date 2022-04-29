@@ -17,6 +17,7 @@ const Edit = () => {
   const history = useHistory();
   const { control, handleSubmit, reset } = useForm({
     defaultValues: {
+      cover: undefined,
       projectType: '',
       cc: '',
       projectName: '',
@@ -67,7 +68,7 @@ const Edit = () => {
                 />
               )}
             />
-            <ImagePicker />
+            <Controller name="cover" control={control} render={({ field }) => <ImagePicker field={field} />} />
           </TopContainer>
           <Controller
             name="cc"

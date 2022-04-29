@@ -1,24 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { CoverContainer, CoverContent, Cover } from './styles';
 
-const ImagePicker = () => {
+const ImagePicker = ({ field }) => {
   const [bgImage, setBgImage] = useState('');
+
+  useEffect(() => {
+    if (field.value) {
+      const fileReader = new FileReader();
+
+      fileReader.onload = () => {
+        setBgImage(fileReader.result);
+      };
+      fileReader.readAsDataURL(field.value);
+      return;
+    }
+    setBgImage('');
+  }, [field.value]);
 
   const onChange = (e) => {
     const { files } = e.target;
     if (files.length === 0) return;
 
     const file = files[0];
-    const fileReader = new FileReader();
-
-    fileReader.onload = () => {
-      setBgImage(fileReader.result);
-    };
-    fileReader.readAsDataURL(file);
+    field.onChange(file);
   };
 
   const onDelete = () => {
-    setBgImage('');
+    field.onChange(undefined);
   };
 
   const renderCoverFooter = () => {
@@ -49,6 +58,10 @@ const ImagePicker = () => {
       <p>(建議 寬670 x 高502 JPG、PNG)</p>
     </CoverContainer>
   );
+};
+
+ImagePicker.propTypes = {
+  field: PropTypes.object.isRequired,
 };
 
 export default ImagePicker;
