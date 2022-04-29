@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { layout, space } from 'styled-system';
 import arrowIcon from '@img/arrow-icon.svg';
+import editCover from '@img/edit-cover.svg';
 import { backgroundImgSetting } from '@components/style/helper';
-import { GRAY4, GRAY6, GRAY7, BLUE1, RED1 } from '@components/style/colors';
+import { WHITE, GRAY1, GRAY4, GRAY6, GRAY7, GRAY8, BLUE1, RED1 } from '@components/style/colors';
 
 const InputContainer = styled.div`
   display: flex;
@@ -141,6 +142,65 @@ const LabelContainer = styled.label`
   }
 `;
 
+const CoverContainer = styled.div`
+  font-size: 14px;
+  color: ${RED1};
+`;
+
+const CoverContent = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 192px;
+  height: 192px;
+  border-radius: 12px;
+  ${(props) => {
+    if (props.bgImage) {
+      return css`
+        background-image: url(${props.bgImage});
+        ${backgroundImgSetting('192px', '192px', 'center', 'cover')};
+      `;
+    }
+    return css`
+      background-color: ${GRAY1};
+    `;
+  }}
+  > label {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    > input {
+      display: none;
+    }
+  }
+  > p {
+    font-size: 16px;
+    color: ${GRAY6};
+    margin-top: 16px;
+    text-decoration: underline;
+  }
+  > button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: ${GRAY8};
+    font-size: 16px;
+    color: ${WHITE};
+    cursor: pointer;
+  }
+`;
+
+const Cover = styled.div`
+  background-image: url(${editCover});
+  ${backgroundImgSetting('64px', '60px', 'center', 'contain')};
+`;
+
 export {
   InputContainer,
   Title,
@@ -153,4 +213,7 @@ export {
   TagSelectorContainer,
   TagContentContainer,
   LabelContainer,
+  CoverContainer,
+  CoverContent,
+  Cover,
 };

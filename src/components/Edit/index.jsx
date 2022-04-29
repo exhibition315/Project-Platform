@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Header from '@components/Header';
+import ImagePicker from '@components/Edit/Input/ImagePicker';
 import PickerInput from '@components/Edit/Input/PickerInput';
 import SingleTextInput from '@components/Edit/Input/SingleTextInput';
 import MultiTextInput from '@components/Edit/Input/MultiTextInput';
@@ -10,7 +11,7 @@ import TagSelector from '@components/Edit/Input/TagSelector';
 import { PROJECT_TYPES, CC_TYPES, TAG_TYPES } from '@common/constants';
 import { MainContainer } from '@components/style';
 import { editSchema } from '@utils/validation';
-import { MainSection, TopContainer, CoverContainer, CoverContent, Cover, FooterContainer } from './styles';
+import { MainSection, TopContainer, FooterContainer } from './styles';
 
 const Edit = () => {
   const history = useHistory();
@@ -66,14 +67,7 @@ const Edit = () => {
                 />
               )}
             />
-            <CoverContainer>
-              <CoverContent>
-                <Cover />
-                <p>+新增圖片</p>
-              </CoverContent>
-              <p>視覺或示意圖</p>
-              <p>(建議 寬670 x 高502 JPG、PNG)</p>
-            </CoverContainer>
+            <ImagePicker />
           </TopContainer>
           <Controller
             name="cc"
