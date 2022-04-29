@@ -1,26 +1,26 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { InputContainer, Title, Required, Description } from '@components/Edit/styles';
+import BaseInput from './BaseInput';
 import { MultiTextInputContainer } from './styles';
 
 const MultiTextInput = forwardRef(
-  ({ field, title, description, placeholder, linkContent, link, isRequired, margin, height }, ref) => (
-    <InputContainer margin={margin}>
-      <div>
-        {title && (
-          <Title>
-            {title}
-            <a href={link} target="_blank" rel="noreferrer">
-              {linkContent}
-            </a>
-          </Title>
-        )}
-        {isRequired && <Required>*必填</Required>}
-      </div>
+  ({ field, title, description, placeholder, linkContent, link, isRequired, margin, height }, ref) => {
+    const renderInput = () => (
       <MultiTextInputContainer ref={ref} placeholder={placeholder} height={height} {...field} />
-      {description && <Description>{description}</Description>}
-    </InputContainer>
-  ),
+    );
+
+    return (
+      <BaseInput
+        renderInput={renderInput}
+        title={title}
+        description={description}
+        linkContent={linkContent}
+        link={link}
+        isRequired={isRequired}
+        margin={margin}
+      />
+    );
+  },
 );
 
 MultiTextInput.propTypes = {

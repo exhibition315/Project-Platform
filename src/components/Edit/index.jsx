@@ -1,9 +1,9 @@
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import Header from '@components/Header';
-import Picker from '@components/Edit/Picker';
-import SingleTextInput from '@components/Edit/TextInput/SingleTextInput';
-import MultiTextInput from '@components/Edit/TextInput/MultiTextInput';
+import PickerInput from '@components/Edit/Input/PickerInput';
+import SingleTextInput from '@components/Edit/Input/SingleTextInput';
+import MultiTextInput from '@components/Edit/Input/MultiTextInput';
 import TagSelector from '@components/Edit/TagSelector';
 import { PROJECT_TYPES, CC_TYPES } from '@common/constants';
 import { MainContainer } from '@components/style';
@@ -44,7 +44,12 @@ const Edit = () => {
               name="projectType"
               control={control}
               render={({ field }) => (
-                <Picker placeholder="請選擇" options={getOptions(PROJECT_TYPES)} margin="0 30px 60px 0" field={field} />
+                <PickerInput
+                  placeholder="請選擇"
+                  options={getOptions(PROJECT_TYPES)}
+                  margin="0 30px 60px 0"
+                  field={field}
+                />
               )}
             />
             <CoverContainer>
@@ -60,7 +65,7 @@ const Edit = () => {
             name="cc"
             control={control}
             render={({ field }) => (
-              <Picker
+              <PickerInput
                 title="創用CC"
                 linkContent="(版權說明)"
                 link="http://creativecommons.tw/explore"

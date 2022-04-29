@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import Select, { components } from 'react-select';
-import { InputContainer, Title, Required, Description } from '@components/Edit/styles';
-import { PickerStyle, PickerIcon } from './styles';
+import BaseInput from './BaseInput';
+import { PickerStyles, PickerIcon } from './styles';
 
 const DropdownIndicator = (props) => (
   <components.DropdownIndicator {...props}>
@@ -10,35 +10,34 @@ const DropdownIndicator = (props) => (
   </components.DropdownIndicator>
 );
 
-const Picker = forwardRef(
-  ({ options, title, description, placeholder, linkContent, link, isRequired, margin, field }, ref) => (
-    <InputContainer margin={margin}>
-      <div>
-        {title && (
-          <Title>
-            {title}
-            <a href={link} target="_blank" rel="noreferrer">
-              {linkContent}
-            </a>
-          </Title>
-        )}
-        {isRequired && <Required>*必填</Required>}
-      </div>
+const PickerInput = forwardRef(
+  ({ options, title, description, placeholder, linkContent, link, isRequired, margin, field }, ref) => {
+    const renderInput = () => (
       <Select
         ref={ref}
         placeholder={placeholder}
         components={{ DropdownIndicator }}
         isSearchable={false}
-        styles={PickerStyle}
+        styles={PickerStyles}
         options={options}
         {...field}
       />
-      {description && <Description>{description}</Description>}
-    </InputContainer>
-  ),
+    );
+    return (
+      <BaseInput
+        renderInput={renderInput}
+        title={title}
+        description={description}
+        linkContent={linkContent}
+        link={link}
+        isRequired={isRequired}
+        margin={margin}
+      />
+    );
+  },
 );
 
-Picker.propTypes = {
+PickerInput.propTypes = {
   options: PropTypes.array,
   field: PropTypes.object,
   title: PropTypes.string,
@@ -50,7 +49,7 @@ Picker.propTypes = {
   margin: PropTypes.string,
 };
 
-Picker.defaultProps = {
+PickerInput.defaultProps = {
   title: '',
   options: [],
   field: {},
@@ -62,4 +61,4 @@ Picker.defaultProps = {
   margin: '',
 };
 
-export default Picker;
+export default PickerInput;
