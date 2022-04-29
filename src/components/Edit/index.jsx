@@ -6,7 +6,7 @@ import Header from '@components/Header';
 import PickerInput from '@components/Edit/Input/PickerInput';
 import SingleTextInput from '@components/Edit/Input/SingleTextInput';
 import MultiTextInput from '@components/Edit/Input/MultiTextInput';
-import TagSelector from '@components/Edit/TagSelector';
+import TagSelector from '@components/Edit/Input/TagSelector';
 import { PROJECT_TYPES, CC_TYPES, TAG_TYPES } from '@common/constants';
 import { MainContainer } from '@components/style';
 import { editSchema } from '@utils/validation';
@@ -14,12 +14,15 @@ import { MainSection, TopContainer, CoverContainer, CoverContent, Cover, FooterC
 
 const Edit = () => {
   const history = useHistory();
-  const { control, register, handleSubmit, reset } = useForm({
+  const { control, handleSubmit, reset } = useForm({
     defaultValues: {
       projectType: '',
       cc: '',
       projectName: '',
-      tag: [],
+      tag: Object.keys(TAG_TYPES).map((key) => ({
+        value: TAG_TYPES[key].key,
+        checked: false,
+      })),
       vision: '',
       description: '',
     },
@@ -94,7 +97,7 @@ const Edit = () => {
             rules={{ required: true }}
             render={({ field }) => <SingleTextInput title="專案名稱" margin="0 0 36px 0" field={field} />}
           />
-          <TagSelector register={register} title="專案分類" options={getOptions(TAG_TYPES)} margin="0 0 36px 0" />
+          <TagSelector control={control} title="專案分類" options={getOptions(TAG_TYPES)} margin="0 0 36px 0" />
           <Controller
             name="vision"
             control={control}

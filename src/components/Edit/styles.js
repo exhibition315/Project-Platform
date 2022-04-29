@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { space } from 'styled-system';
 import editCover from '@img/edit-cover.svg';
 import { backgroundImgSetting } from '@components/style/helper';
-import { WHITE, BLACK4, GRAY1, GRAY3, GRAY4, GRAY6, BLUE1, RED1 } from '@components/style/colors';
+import { WHITE, BLACK4, GRAY1, GRAY3, GRAY4, GRAY6, RED1 } from '@components/style/colors';
 
 const MainSection = styled.div`
   align-self: center;
@@ -65,51 +64,4 @@ const FooterContainer = styled.div`
   }
 `;
 
-const InputContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  ${space};
-  > div {
-    display: flex;
-    align-items: flex-end;
-    margin-bottom: 10px;
-  }
-`;
-
-const Title = styled.p`
-  font-size: 16px;
-  color: ${GRAY4};
-  margin-right: 4px;
-  > a {
-    font-size: 14px;
-    color: ${BLUE1};
-    margin-left: 10px;
-    text-decoration: none;
-    cursor: pointer;
-  }
-`;
-
-const Required = styled.p`
-  font-size: 14px;
-  color: ${RED1};
-`;
-
-const Description = styled.p`
-  font-size: 14px;
-  color: ${GRAY6};
-  margin-top: 6px;
-`;
-
-export {
-  MainSection,
-  TopContainer,
-  CoverContainer,
-  CoverContent,
-  Cover,
-  FooterContainer,
-  InputContainer,
-  Title,
-  Required,
-  Description,
-};
+export { MainSection, TopContainer, CoverContainer, CoverContent, Cover, FooterContainer };

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { InputContainer, Title, Required, Description } from '@components/Edit/styles';
+import { InputContainer, Title, Required, Description } from './styles';
 
 const BaseInput = ({ renderInput, title, description, linkContent, link, isRequired, margin }) => (
   <InputContainer margin={margin}>
