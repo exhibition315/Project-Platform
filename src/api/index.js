@@ -8,6 +8,7 @@ const fetcher = {
 const api = {
   getProjects: '/get-projects',
   getProject: '/get-project',
+  getProjectDetail: '/get-project-detail',
 };
 
 export { api, fetcher };

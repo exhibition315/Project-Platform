@@ -4,6 +4,7 @@ const base = require('./webpack.base.config');
 
 const getProjects = require('./mock/getProjects.json');
 const getProject = require('./mock/getProject.json');
+const getProjectDetail = require('./mock/getProjectDetail.json');
 
 const DEV_SERVER = 'http://127.0.0.1';
 
@@ -30,6 +31,9 @@ module.exports = merge(base, {
           }
           if (req.url.includes('/api/get-projects')) {
             return res.send(getProjects);
+          }
+          if (req.url.includes('/api/get-project-detail/p')) {
+            return res.send(getProjectDetail);
           }
         },
       },

@@ -1,6 +1,7 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
+import useSWR from 'swr';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Header from '@components/Header';
 import ImagePicker from '@components/Edit/Input/ImagePicker';
@@ -11,10 +12,15 @@ import TagSelector from '@components/Edit/Input/TagSelector';
 import { PROJECT_TYPES, CC_TYPES, TAG_TYPES } from '@common/constants';
 import { MainContainer } from '@components/style';
 import { editSchema } from '@utils/validation';
+import { getValueByKey } from '@utils/utils';
+import { api, fetcher } from '@api';
 import { MainSection, TopContainer, FooterContainer } from './styles';
 
 const Edit = () => {
   const history = useHistory();
+  const { id } = useParams();
+  const { data } = useSWR(id ? [api.getProjectDetail, id] : null, (url) => fetcher.getWithParam(url, id));
+
   const { control, handleSubmit, reset } = useForm({
     defaultValues: {
       cover: undefined,
@@ -31,8 +37,38 @@ const Edit = () => {
     resolver: yupResolver(editSchema),
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  useEffect(() => {
+    if (data) {
+      const { cover, projectType, cc, projectName, tag, vision, description } = data;
+      reset({
+        cover,
+        projectType: {
+          value: projectType,
+          label: getValueByKey(projectType, PROJECT_TYPES),
+        },
+        cc: {
+          value: cc,
+          label: getValueByKey(cc, CC_TYPES),
+        },
+        projectName,
+        tag: Array(6)
+          .fill({})
+          .map((t, index) => {
+            const key = `0${index}`;
+            const checked = tag.includes(key);
+            return {
+              key,
+              checked,
+            };
+          }),
+        vision,
+        description,
+      });
+    }
+  }, [data]);
+
+  const onSubmit = (d) => {
+    console.log(d);
     history.push('/');
   };
 
@@ -60,11 +96,7 @@ const Edit = () => {
               control={control}
               rules={{ required: true }}
               render={({ field }) => (
-                <PickerInput
-                  placeholder="請選擇"
-                  options={getOptions(PROJECT_TYPES)}
-                  field={field}
-                />
+                <PickerInput placeholder="請選擇" options={getOptions(PROJECT_TYPES)} field={field} />
               )}
             />
             <Controller name="cover" control={control} render={({ field }) => <ImagePicker field={field} />} />

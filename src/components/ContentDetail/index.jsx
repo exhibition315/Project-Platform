@@ -17,7 +17,7 @@ const ContentDetail = () => {
       <Header />
       {data && (
         <MainSection>
-          <DetailHeader author={data.author} date={data.date} />
+          <DetailHeader id={id} author={data.author} date={data.date} />
           <ContentImage />
           <Content
             title={data.title}
