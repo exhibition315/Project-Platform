@@ -6,6 +6,8 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development APPLICATION_PHASE=LOCAL webpack-dev-server --config webpack.dev.config.js",
     "build": "npm run lint && webpack --config webpack.prd.config.js",
+    "serve": "npm run build && serve -s build",
+    "clean": "npx rimraf build",
     "analyze": "npm run build -- --analyze",
     "test": "jest --config jest.config.js --verbose",
     "lint": "eslint src --ext .js,.jsx --config ./.eslintrc.js",
