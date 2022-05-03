@@ -14,3 +14,10 @@ A React with Saga Template
 * Prettier
 * Jest
 * Husky
+
+---
+
+Heroku deploy
+```
+git push heroku main
+```
