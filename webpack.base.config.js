@@ -20,7 +20,7 @@ module.exports = {
     'Project-Platform': resolve('src/index.jsx'),
   },
   output: {
-    path: resolve('build'),
+    path: resolve('dist'),
     filename: 'bundle.js',
   },
   resolve: {

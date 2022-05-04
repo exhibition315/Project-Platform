@@ -5,7 +5,7 @@ const route = require('./route');
 const PORT = process.env.PORT || 8001;
 const app = express();
 
-app.use(express.static(path.resolve(__dirname, '../build')));
+app.use(express.static(path.resolve(__dirname, '../dist')));
 
 route(app);
 
