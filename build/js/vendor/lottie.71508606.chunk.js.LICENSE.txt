@@ -1,0 +1,700 @@
+/*
+   Copyright 2014 David Bau.
+
+   Permission is hereby granted, free of charge, to any person obtaining
+   a copy of this software and associated documentation files (the
+   "Software"), to deal in the Software without restriction, including
+   without limitation the rights to use, copy, modify, merge, publish,
+   distribute, sublicense, and/or sell copies of the Software, and to
+   permit persons to whom the Software is furnished to do so, subject to
+   the following conditions:
+
+   The above copyright notice and this permission notice shall be
+   included in all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+   CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+   TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+   SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+   */
+
+/*
+  This method searches for multiple shapes that affect a single element and one of them is animated
+  */
+
+/* ICompElement.prototype.hide = function(){
+      if(!this.hidden){
+          this.hideElement();
+          var i,len = this.elements.length;
+          for( i = 0; i < len; i+=1 ){
+              if(this.elements[i]){
+                  this.elements[i].hide();
+              }
+          }
+      }
+  }; */
+
+/* clonedPath.v[index] = currentV;
+                  clonedPath.o[index] = currentO;
+                  clonedPath.i[index] = currentI; */
+
+/* eslint-disable */
+
+/* if(forceRender || this.filterManager.effectElements[5].p._mdf){
+              if(this.filterManager.effectElements[5].p.v === 1 && this.originalNodeAdded) {
+                  this.feMerge.removeChild(this.feMergeNode);
+                  this.originalNodeAdded = false;
+              } else if(this.filterManager.effectElements[5].p.v === 0 && !this.originalNodeAdded) {
+                  this.feMerge.appendChild(this.feMergeNode);
+                  this.originalNodeAdded = true;
+              }
+          } */
+
+/* if(kf[kf.length - 1].s){
+                  keyPropS = kf[kf.length - 1].s[0];
+              }else{
+                  keyPropS = kf[kf.length - 2].e[0];
+              } */
+
+/* if(op === 1){
+          return;
+      } */
+
+/* if(this.isIdentity()) {
+              return '';
+          } */
+
+/* ind += 0.5;
+                      mult = -4/(tot*tot)*(ind*ind)+(4/tot)*ind; */
+
+/* matrix order (canvas compatible):
+           * ace
+           * bdf
+           * 001
+           */
+
+/* return {
+           x: x * me.a + y * me.c + me.e,
+           y: x * me.b + y * me.d + me.f
+           }; */
+
+/* this.maskManager.renderFrame(this.finalTransform.mat);
+          this.renderableEffectsManager.renderFrame(this._isFirstFrame); */
+
+/* this.v.v[i] = [x,y];
+                      this.v.i[i] = [x+ox*perimSegment*roundness*dir,y+oy*perimSegment*roundness*dir];
+                      this.v.o[i] = [x-ox*perimSegment*roundness*dir,y-oy*perimSegment*roundness*dir];
+                      this.v._length = numPts; */
+
+/* var feColorMatrix = createNS('feColorMatrix');
+                  feColorMatrix.setAttribute('type', 'matrix');
+                  feColorMatrix.setAttribute('color-interpolation-filters', 'sRGB');
+                  feColorMatrix.setAttribute('values','1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 -1 1');
+                  fil.appendChild(feColorMatrix); */
+
+/* var i, len = this.elements.length;
+      for(i=0;i<len;i+=1){
+          if(this.elements[i] && this.elements[i].data.ty === 0){
+              this.elements[i].resize(this.globalData.transformCanvas);
+          }
+      } */
+
+/**
+           * getTForX chose the fastest heuristic to determine the percentage value precisely from a given X projection.
+           */
+
+/**
+       * @function
+       * Calculates all dynamic values
+       *
+       * @param {number} num
+       * current frame number in Layer's time
+       * @param {boolean} isVisible
+       * if layers is currently in range
+       *
+       */
+
+/**
+       * @function
+       * Initializes frame related properties.
+       *
+       * @param {number} num
+       * current frame number in Layer's time
+       *
+       */
+
+/**
+       * @function
+       * Initializes frame related properties.
+       *
+       */
+
+/**
+       * @function
+       * Initializes hierarchy properties
+       *
+       */
+
+/**
+       * @function
+       * Searches layer's parenting chain
+       *
+       */
+
+/**
+       * @function
+       * Sets layer as parent.
+       *
+       */
+
+/**
+       * @function
+       * Sets layer's hierarchy.
+       * @param {array} hierarch
+       * layer's parent list
+       *
+       */
+
+/**
+       * BezierEasing - use bezier curve for transition easing function
+       * by Gaëtan Renaudeau 2014 - 2015 – MIT License
+       *
+       * Credits: is based on Firefox's nsSMILKeySpline.cpp
+       * Usage:
+       * var spline = BezierEasing([ 0.25, 0.1, 0.25, 1.0 ])
+       * spline.get(x) => returns the easing value | x must be in [0, 1] range
+       *
+       */
+
+/**
+       * points is an array of [ mX1, mY1, mX2, mY2 ]
+       */
+
+/**
+   * @file
+   * Handles AE's layer parenting property.
+   *
+   */
+
+/**
+   * @file
+   * Handles element's layer frame update.
+   * Checks layer in point and out point
+   *
+   */
+
+/***/
+
+//
+
+//     - divide it by the smoothness (this will return the range to [0; 1])
+
+//     - subtract the threshold
+
+//   0 -> off -> duplicate
+
+//   1 -> on  -> wrap
+
+//   a: { k: [0, 0, 0], a: 0 },
+
+//   and denominator d = 2 ^ 48.
+
+//   and no 'extra last byte'.
+
+//   denominator and generating a
+
+//   last byte, shift everything
+
+//   o: { k: 100, a: 0 },
+
+//   p: { k: [0, -compData.h, 0], a: 0 },
+
+//   r: { k: 0, a: 0 },
+
+//   right using integer math until
+
+//   s: { k: [100, 100], a: 0 },
+
+//   shifting numerator and
+
+// - find the lower value of the new range (threshold)
+
+// - if it is larger,
+
+// - if multiplier is smaller than that value, floor it to 0
+
+// ARC4
+
+// Adding M0 0 fixes same mask bug on all browsers
+
+// Adding shape to dynamic properties. It covers the case where a shape has no effects applied, to reset it's _mdf state on every tick.
+
+// Adding this timeout seems to fix it
+
+// An ARC4 implementation.  The constructor takes a key in the form of
+
+// Because JavaScript number are imprecise, we should guarantee the extremes are right.
+
+// Bundlers will see these as dead code and unless we reference them
+
+// Calling convention: what to return as a function of prng, seed, is_math.
+
+// Canvas version
+
+// Changed this to a ternary operation because Rollup failed compiling it correctly
+
+// Characters that vary significantly among different fonts
+
+// Checking if any of the transformation matrices in the hierarchy chain has changed.
+
+// Checking if index changed to prevent creating a new object every time the expression updates.
+
+// Checking if nextValue > totalFrames - 1 for addressing non looping and looping animations.
+
+// Clipping compositions to hide content that exceeds boundaries. If collapsed transformations is on, component should not be clipped
+
+// Converts an array of charcodes to a string
+
+// Converts an object tree to nested arrays of strings.
+
+// Copies internal state of ARC4 to or from a plain object.
+
+// Doesn't make much sense to add this optimization. If it is an identity matrix, it's very likely this will get called only once since it won't be keyframed.
+
+// Don't remove this even if it's losing cached info.
+
+// Empirical value, matching AE's blur appearance.
+
+// FIX for TypedArrays that don't store floating point values with enough accuracy
+
+// Fill up all significant digits by
+
+// Font is already loaded
+
+// For now this caching object is created only when needed instead of creating it when the shape is initialized.
+
+// For now, since shapes add up with other shapes. They have to be calculated every time.
+
+// For robust unpredictability, the function call below automatically
+
+// Force alignment only works with a single line for now
+
+// Form the number within [0, 1).
+
+// Full shape data
+
+// Grouping alignment
+
+// Hindi characters
+
+// If animation won't loop, it should stop at totalFrames - 1. If it will loop it should complete the last frame and then loop.
+
+// If called as a method of Math (Math.seedrandom()), mutate
+
+// If it is exported as hidden (data.hd === true) no need to render
+
+// If it is not visible no need to render
+
+// If layer has been modified in current tick this will be true
+
+// If layer's transparency equals 0, it can be hidden
+
+// If stringValue is an empty string, eval returns undefined, so it has to be returned as a String primitive
+
+// If this layer acts as a mask for the following layer
+
+// Interpolate to provide an initial guess for t
+
+// Large font size makes even subtle changes obvious
+
+// List of animated components
+
+// List of drawable elements
+
+// List of elements that have been created
+
+// List of items in previous shape tree
+
+// List of items in shape tree
+
+// List of modifiers that will be applied to shapes
+
+// List of styles that will be applied to shapes
+
+// Load the arc4 state from the given state if it has an S array.
+
+// Mask animation
+
+// Math.random because that is how seedrandom.js has worked since v1.0.
+
+// Mix the randomness into accumulated entropy.
+
+// Mixes a string seed into a key that is an array of integers, and
+
+// Moving any property that doesn't get too much access after initialization because of v8 way of handling more than 10 properties.
+
+// NOTE: commenting this condition because TurboFan deoptimizes code when present
+
+// Node is invisible to screen readers.
+
+// Not necessary for now. Keeping them here in case a new case appears
+
+// Note: If it doesn't work on some scenarios, consider applying it before the easer.
+
+// On some cases even if the font is loaded, it won't load correctly when measuring text on canvas.
+
+// One way of finding out is checking if all styles associated to this shape depend only of this shape
+
+// Only provide the .state method if requested via options.state.
+
+// Opacity is not part of the transform properties, that's why it won't use this.dynamicProperties. That way transforms won't get updated if opacity changes.
+
+// Outset the filter region by 100% on all sides to accommodate blur expansion.
+
+// Precalculated matrix with non animated properties
+
+// Private part
+
+// Registering expression plugin
+
+// Registering shape modifiers
+
+// Registering svg effects
+
+// Releasign Trim Cached paths data when no trim applied in case shapes are modified inbetween.
+
+// Remember width with no applied web font
+
+// Repeat edges mapping:
+
+// Reset any font properties
+
+// Returns an object for autoseeding, using window.crypto and Node crypto
+
+// Returns dx/dt given t, x1, and x2, or dy/dt given t, y1, and y2.
+
+// Returns x(t) given t, x1, and x2, or y(t) given t, y1, and y2.
+
+// SVG version
+
+// See http://google.com/search?q=rsa+fluhrer+response&btnI
+
+// Set up S using the standard key scheduling algorithm.
+
+// Skipping style when
+
+// Smoothness implementation.
+
+// Start with a numerator n < 2 ^ 48
+
+// Steps are:
+
+// Stretch factor for old animations missing this property.
+
+// Stroke width equals 0
+
+// TODO find if there are some cases where _isAnimated can be false.
+
+// TODO move this to a factory or to a constructor
+
+// TODO: Check if it's possible to return on ShapeInterface the .v value
+
+// TODO: commenting this for now since all shapes are animated
+
+// TODO: find a better way to make the HCamera element to be compatible with the LayerInterface and TransformInterface.
+
+// TODO: prevent drawing of hidden styles
+
+// TODO: release bezier data cached from previous pathInfo: this._pathData.pi
+
+// TODO: try to avoid using this getter
+
+// The "g" method returns the next (count) outputs as one number.
+
+// The empty key [] is treated as [0].
+
+// The following constants are related to IEEE 754 limits.
+
+// The g(count) method returns a pseudorandom integer that concatenates
+
+// The smoothness represents a reduced range of the original [0; 1] range.
+
+// These values are established by empiricism with tests (tradeoff: performance VS precision)
+
+// This condition is to prevent applying tracking to first character in each line. Might be better to use a boolean "isNewLine"
+
+// This crashes on Android WebView prior to KitKat
+
+// This is only for IE and Edge when mask if of type alpha
+
+// This is the seedrandom function described above.
+
+// This iteration needs to be backwards because of how expressions connect between each other
+
+// This solution doesn't work on Android when meta tag with viewport attribute is set
+
+// To avoid rounding up, before adding
+
+// Todo Benchmark if using this is better than getBBox
+
+// Using instance members instead of closure state nearly doubles speed.
+
+// Visible - so we can measure it - but not on the screen
+
+// When seedrandom.js is loaded, we immediately mix a few bits
+
+// [perspectiveElem,container]
+
+// achromatic
+
+// addedAmps[j] += -amp + amp*2*rnd;
+
+// an array of at most (width) integers that should be 0 <= x < (width).
+
+// arr[i] = this.pv[i] + addedAmp + amp1*perc + amp2*(1-perc);
+
+// arr[j] = this.pv[j] + addedAmps[j] + (-amp + amp*2*rnd)*perc;
+
+// autoseed()
+
+// based on @Toji's https://github.com/toji/gl-matrix/
+
+// caching._lastKeyframeIndex = -1;
+
+// case 'ADBE Vector Transform Group':
+
+// case 3:
+
+// case 6:
+
+// chars[i].data.ip = 0;
+
+// chars[i].data.ks = {
+
+// chars[i].data.op = 99999;
+
+// chars[i].data.sr = 1;
+
+// chars[i].data.st = 0;
+
+// chars[i].w = compData.w;
+
+// console.log('-------');
+
+// console.log('--------');
+
+// console.log('FRAME ',num);
+
+// console.log('HIDE', this);
+
+// console.log('NEW: ',num);
+
+// console.log('SHOW', this);
+
+// console.log(tHelper.getBBox().width)
+
+// copy()
+
+// count += 1;
+
+// current opacity equals 0
+
+// discards an initial batch of values.  This is called RC4-drop[256].
+
+// divElement.style.clip = 'rect(0px, '+this.data.w+'px, '+this.data.h+'px, 0px)';
+
+// document.body.appendChild is needed to get exact measure of shape
+
+// effects manager
+
+// element's parent list
+
+// eslint-disable-line
+
+// eslint-disable-line camelcase
+
+// eslint-disable-line eqeqeq
+
+// eslint-disable-line no-bitwise
+
+// eslint-disable-line no-empty
+
+// eslint-disable-line no-new-wrappers
+
+// eslint-disable-line no-plusplus
+
+// eslint-disable-line no-undef
+
+// eslint-disable-line no-useless-escape
+
+// finalText = finalText.substr(0,i) + "\r" + finalText.substr(i === lastSpaceIndex ? i + 1 : i);
+
+// flatten()
+
+// fontData.cache[index] = tHelper.measureText(char).width / 100;
+
+// frameNum += this.elem.data.st;
+
+// from the built-in RNG into the entropy pool.  Because we do
+
+// gfill.setAttribute('fy','200');
+
+// global opacity equals 0
+
+// globalData.pushExpression();
+
+// if element is parent of another layer _isParent will be true
+
+// if m === 2 means paths are trimmed individually so edges need to be found for this specific shape relative to whoel group
+
+// if needed, don't add it here
+
+// if shape hasn't changed and trim properties haven't changed, cached previous path can be used
+
+// if smoothness is 25%, the new range will be [0.375; 0.625]
+
+// if(m2 !== 0 || n2 !== 0 || o2 !== 0){
+
+// import Howl from '../../3rd_party/howler';
+
+// initialization.
+
+// interfaceFunction.content = interfaceFunction;
+
+// layer's display state
+
+// layer's visibility related to inpoint and outpoint. Rename isVisible to isInRange
+
+// linear
+
+// list of animated components
+
+// list of animated properties
+
+// lottie.start = start;
+
+// matrixHelper.translate(documentData.ps[0],documentData.ps[1],0);
+
+// mixkey()
+
+// module if available.
+
+// moduleOb.start = start;
+
+// node.js crypto module, initialized at the bottom.
+
+// not want to interfere with deterministic PRNG state later,
+
+// pathNodes.__renderedString = pathString;
+
+// pathString += " C"+pathNodes.o[i-1][0]+','+pathNodes.o[i-1][1] + " "+pathNodes.i[0][0]+','+pathNodes.i[0][1] + " "+pathNodes.v[0][0]+','+pathNodes.v[0][1];
+
+// pathString += " C"+pathNodes.o[i-1][0]+','+pathNodes.o[i-1][1] + " "+pathNodes.i[i][0]+','+pathNodes.i[i][1] + " "+pathNodes.v[i][0]+','+pathNodes.v[i][1];
+
+// perc doesn't use triple equality because it can be a Number object as well as a primitive.
+
+// prop.getVelocityAtTime = getVelocityAtTime;
+
+// prop.loopIn = loopIn;
+
+// prop.loopOut = loopOut;
+
+// ptNew = transforms[i].mat.applyToPointArray(pt[0],pt[1],pt[2]);
+
+// removing frameRate
+
+// return this._t(mCos, mSin, -mSin, mCos, 0, 0)._t(1, 0, _tan(ax), 1, 0, 0)._t(mCos, -mSin, mSin, mCos, 0, 0);
+
+// return {active:false};
+
+// return {appendChild:function(){},setAttribute:function(){},style:{}}
+
+// returns a shortened string seed that is equivalent to the result key.
+
+// rngname: name for Math.random and Math.seedrandom
+
+// seedrandom will not call math.random on its own again after
+
+// seedrandom()
+
+// set responseType after calling open or IE will break.
+
+// set to true when inpoint is rendered
+
+// sh Indicates it needs to be capped between -180 and 180
+
+// so if available, it's better to use the header to validate the type
+
+// style should not be rendered (extra unused repeaters)
+
+// tCanvasHelper.font = ' 100px '+ fontData.fFamily;
+
+// tCanvasHelper.font = documentData.finalSize + 'px '+ fontManager.getFontByName(documentData.f).fFamily;
+
+// tCanvasHelper.font = documentData.s + 'px '+ fontData.fFamily;
+
+// tHelper.style.fontFamily = fontData.fFamily;
+
+// tSpan.setAttribute('visibility', 'hidden');
+
+// that is in the range 0 <= x < (width ^ count).
+
+// the next (count) outputs from ARC4.  Its return value is a number x
+
+// this adds bodymovin to the window object for backwards compatibility
+
+// this._elements.unshift(arr.splice(pos,1)[0]);
+
+// this.addSegment(segment.pt1, segment.pt3, segment.pt4, segment.pt2, shapePath, segmentCount, newShape);
+
+// this.audio.play()
+
+// this.contextData.cTr.transform(props[0],props[1],props[2],props[3],props[4],props[5],props[6],props[7],props[8],props[9],props[10],props[11],props[12],props[13],props[14],props[15]);
+
+// this.layerElement.style.transform = 'translate3d(0,0,0)';
+
+// this.layerElement.style.transformOrigin = this.layerElement.style.mozTransformOrigin = this.layerElement.style.webkitTransformOrigin = this.layerElement.style['-webkit-transform'] = "0px 0px 0px";
+
+// this.resizerElem.appendChild(perspectiveElem);
+
+// tostring()
+
+// using typeof doubles the time of execution of this method,
+
+// var blob = new Blob(['self.onmessage = ', fn.toString()], { type: 'text/javascript' });
+
+// var charWidth = fontManager.measureText(val, documentData.f, documentData.finalSize);
+
+// var compData = findComp(chars[i].data.refId, assets);
+
+// var lookDir = getNormalizedPoint(getDiffVector(this.a.v,this.p.v));
+
+// var prevP = this.getValueAtTime();
+
+// var rnd = BMMath.random();
+
+// var rnd2 = BMMath.random();
+
+// var tempBoundingBox = this.shapeCont.getBBox();
+
+// velocity[i] = this.elem.globalData.frameRate*((v2[i] - v1[i])/delta);
+
+// xPos += letters[i].val === ' ' ? 0 : trackingOffset;
+
+// }
+
+// };
+
+/// /
+
+/// /rect.style.fill = this.data.sc;
+
+/// /rect.style.height = this.data.sh;
+
+/// /rect.style.width = this.data.sw;
+
+/// /textSpan.setAttribute('opacity',renderedLetter.o);
