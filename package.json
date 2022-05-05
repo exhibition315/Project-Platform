@@ -11,7 +11,9 @@
     "analyze": "npm run build -- --analyze",
     "test": "jest --config jest.config.js --verbose",
     "lint": "eslint src --ext .js,.jsx --config ./.eslintrc.js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "cd server && npm install",
+    "start-server": "cd server && npm start"
   },
   "author": "Alvin Wang",
   "license": "ISC",
